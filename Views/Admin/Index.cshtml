@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HospitalManagementSysSprint_CoreMvc.Models.RoleVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new {  id=item.RoleId  }) |              
+                @Html.ActionLink("Delete", "Delete", new {  id=item.RoleId  })*@
+                @Html.ActionLink("Department", "Department", new { id=item.RoleId }) |
+                
+                @*<p><a href="~/Home/Department/index">Department</a></p> |
+                 <p><a href="~/Home/Doctor/index">Doctor</a></p> |
+                 <p><a href="~/Home/Room/index">Room</a></p> |
+                 <p><a href="~/Home/RoomType/index">RoomType</a></p> |
+                 <p><a href="~/Home/LabTest/index">LabTest</a></p>*@
+                
+            </td>
+        </tr>
+}
+               
+    </tbody>
+</table>
+ 

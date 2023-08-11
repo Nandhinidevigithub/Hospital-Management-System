@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HospitalManagementSysSprint_CoreMvc.Models.PatientVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Patient Details</h1>
+<div>
+     <img src="~/image/patient.jpeg"width="50%" height="250px">
+</div>
+<br/>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disease)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disease)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }) |
+               
+                  @Html.ActionLink("Delete", "Delete", new { id=item.PatientId }) |
+                  @Html.ActionLink("Inpatient", "index","Inpatient") |
+                  @Html.ActionLink("OutPatient","index","OutPatient")|
+                  @Html.ActionLink("Patient LabTest Details","index","PatientLabTestDetail")
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

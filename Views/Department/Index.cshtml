@@ -1,0 +1,71 @@
+﻿@model IEnumerable<HospitalManagementSysSprint_CoreMvc.Models.DepartmentVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*<html>
+    <head>
+        <title>Register Page</title>
+    </head>
+<style>
+
+    h4{
+        color:red;
+        font-family:serif;
+    }
+      body {
+    background-image: url(../css/dept.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+      }
+</style>
+<body>*@
+<h1>Departments</h1>
+
+<div>
+     <img src="~/image/dept.jpeg"width="50%" height="250px">
+</div>
+<br/>
+<br/>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.DepartmentId }) |
+               
+                @Html.ActionLink("Delete", "Delete", new {  id=item.DepartmentId  }) |
+                @Html.ActionLink("Doctor","index", "Doctor")  |
+                @Html.ActionLink("LabTest","index", "LabTest")  |
+                @Html.ActionLink("RoomType","index", "RoomType")  |
+                @Html.ActionLink("Room", "index","Room")
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@*</body>
+</html>*@

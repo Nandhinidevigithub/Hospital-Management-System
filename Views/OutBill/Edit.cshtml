@@ -1,0 +1,45 @@
+﻿@model HospitalManagementSysSprint_CoreMvc.Models.OutBillVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Edit OutPatientBill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BillId" class="control-label"></label>
+                <input asp-for="BillId" class="form-control" />
+                <span asp-validation-for="BillId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OutPatientId" class="control-label"></label>
+                <input asp-for="OutPatientId" class="form-control" />
+                <span asp-validation-for="OutPatientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorFees" class="control-label"></label>
+                <input asp-for="DoctorFees" class="form-control" />
+                <span asp-validation-for="DoctorFees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LabCharges" class="control-label"></label>
+                <input asp-for="LabCharges" class="form-control" />
+                <span asp-validation-for="LabCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

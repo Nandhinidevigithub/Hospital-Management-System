@@ -1,0 +1,98 @@
+﻿@model IEnumerable<HospitalManagementSysSprint_CoreMvc.Models.OutBillVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+    <head>
+
+    </head>
+    <body>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BillId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutPatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorFees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LabCharges)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutPatientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorFees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LabCharges)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.BillId }) |
+               
+                @Html.ActionLink("Delete", "Delete", new {  id=item.BillId })
+                
+               @*<td>@Html.ActionLink("Delete", "Delete", new { BillId=item.BillId,OutPatientId=item.OutPatientId,DoctorFees=item.DoctorFees,LabCharges=item.LabCharges}) </td>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table><br/><br/><br/>
+<label>TotalCost:</label>
+    @{
+        int sum = 0;
+        foreach (var item in Model)
+        {
+            sum += Convert.ToInt32(item.DoctorFees)  + Convert.ToInt32(item.LabCharges);
+        }
+            @Html.DisplayTextFor(TotalCost => sum)
+}
+ <br />    
+ <br />
+ <br />
+<input type="button" value="Bill" onclick="Confirmfun()" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+function Confirmfun() {
+    var input = $("<input />");
+    input.attr("type", "hidden").attr("name", "confirm_value");
+    if (confirm("Your bill paided successfully")) {
+        input.val("Yes");
+    } else {
+        input.val("No");
+    }
+
+            $("form")[0].appendChild(input[0]);
+        }
+    </script>
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            $(function () {
+              alert("@ViewBag.Message")
+            });
+        </script>
+    }
+
+ </body>
+</html>

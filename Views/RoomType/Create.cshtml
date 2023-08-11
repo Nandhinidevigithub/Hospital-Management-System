@@ -1,0 +1,69 @@
+﻿@model HospitalManagementSysSprint_CoreMvc.Models.RoomTypeVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Create RoomType</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @* <div class="form-group">
+                <label asp-for="RoomTypeId" class="control-label"></label>
+                <input asp-for="RoomTypeId" class="form-control" />
+                <span asp-validation-for="RoomTypeId" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="RoomTypeName" class="control-label"></label>
+                <input asp-for="RoomTypeName" class="form-control" />
+                <span asp-validation-for="RoomTypeName" class="text-danger"></span>
+            </div>*@
+            <label asp-for="RoomTypeName" class="control-label"></label>
+             <input asp-for="RoomTypeName" class="form-control" />
+             <span asp-validation-for="RoomTypeName" class="text-danger"></span>
+              @*<select class="form-control" id="RoomTypeName" name="RoomTypeName">
+              <option>Select RoomType</option> 
+                <option>Private Ward-1000</option> 
+                <option>Public Ward-500</option> 
+                <option>ICU-3000</option> 
+                <option>Delux-2000</option>
+                <option>Suite-4000</option> 
+                
+               </select>*@
+               <br/>
+               <br/>
+            @*<div class="form-group">
+                <label asp-for="ChargesPerDay" class="control-label"></label>
+                <input asp-for="ChargesPerDay" class="form-control" />
+                <span asp-validation-for="ChargesPerDay" class="text-danger"></span>
+            </div>*@
+            
+            <label asp-for="ChargesPerDay" class="control-label"></label>
+            <input asp-for="ChargesPerDay" class="form-control" />
+            <span asp-validation-for="ChargesPerDay" class="text-danger"></span>
+              @*<select class="form-control" id="ChargesPerDay" name="ChargesPerDay">
+              <option>Select ChargesPerDay</option> 
+                <option>1000</option> 
+                <option>500</option> 
+                <option>3000</option> 
+                <option>2000</option>
+                <option>4000</option> 
+                
+               </select>*@
+               <br/>
+               <br/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
